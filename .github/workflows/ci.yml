@@ -5,9 +5,6 @@ on:
     branches:
       - "main"
 
-env:
-  USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,13 +24,13 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       # Tag each image
-      - run: docker tag udagram-frontend:local $USERNAME/udagram-frontend:v1
-      - run: docker tag udagram-api-feed $USERNAME/udagram-api-feed:v1
-      - run: docker tag udagram-api-user $USERNAME/udagram-api-user:v1
-      - run: docker tag reverseproxy $USERNAME/reverseproxy:v1
+      - run: docker tag udagram-frontend:local ebukachuqz/udagram-frontend:v1
+      - run: docker tag udagram-api-feed ebukachuqz/udagram-api-feed:v1
+      - run: docker tag udagram-api-user ebukachuqz/udagram-api-user:v1
+      - run: docker tag reverseproxy ebukachuqz/reverseproxy:v1
 
       # push images to DockerHub
-      - run: docker push $USERNAME/udagram-frontend:v1
-      - run: docker push $USERNAME/udagram-api-feed:v1
-      - run: docker push $USERNAME/udagram-api-user:v1
-      - run: docker push $USERNAME/reverseproxy:v1
+      - run: docker push ebukachuqz/udagram-frontend:v1
+      - run: docker push ebukachuqz/udagram-api-feed:v1
+      - run: docker push ebukachuqz/udagram-api-user:v1
+      - run: docker push ebukachuqz/reverseproxy:v1
