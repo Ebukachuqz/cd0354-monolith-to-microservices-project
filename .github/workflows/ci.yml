@@ -24,13 +24,13 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       # Tag each image
-      - run: docker tag udagram-frontend:local ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-frontend:v1a
+      - run: docker tag udagram-frontend:local ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-frontend:v2
       - run: docker tag udagram-api-feed ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-api-feed:v1
       - run: docker tag udagram-api-user ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-api-user:v1
       - run: docker tag reverseproxy ${{ secrets.DOCKER_HUB_USERNAME }}/reverseproxy:v1
 
       # push images to DockerHub
-      - run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-frontend:v1a
+      - run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-frontend:v2
       - run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-api-feed:v1
       - run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-api-user:v1
       - run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/reverseproxy:v1
